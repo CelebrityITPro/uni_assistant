@@ -1,0 +1,41 @@
+graph TB
+    subgraph "Data Collection Layer"
+        A[Web Scraper<br/>Scrapy/BeautifulSoup] --> B[Document Parser<br/>PyPDF2/python-docx]
+        B --> C[Text Chunker<br/>LangChain TextSplitter]
+    end
+    
+    subgraph "Storage Layer"
+        C --> D[Vector Embeddings<br/>sentence-transformers]
+        D --> E[Vector Database<br/>ChromaDB/FAISS]
+        C --> F[Metadata Store<br/>SQLite]
+    end
+    
+    subgraph "Retrieval Layer"
+        G[User Query] --> H[Query Embedding<br/>sentence-transformers]
+        H --> I[Hybrid Search<br/>Vector + Keyword]
+        E --> I
+        F --> I
+        I --> J[Context Retrieval<br/>Top-K Documents]
+    end
+    
+    subgraph "Generation Layer"
+        J --> K[Prompt Construction<br/>System + Context + Query]
+        K --> L[LLM<br/>Ollama: Llama/Mistral]
+        L --> M[Response Formatting]
+    end
+    
+    subgraph "Application Layer"
+        M --> N[Chatbot Interface<br/>Streamlit/Gradio]
+        N --> G
+        O[Conversation History<br/>SQLite] --> K
+        M --> O
+    end
+    
+    subgraph "Periodic Updates"
+        P[Scheduler<br/>APScheduler] -.->|Daily/Weekly| A
+    end
+    
+    style A fill:#e1f5ff
+    style E fill:#ffe1f5
+    style L fill:#fff5e1
+    style N fill:#e1ffe1

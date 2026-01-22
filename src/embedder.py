@@ -34,6 +34,7 @@ class EmbeddingGenerator:
         print("ChromaDB initialized")
         
         self.collection = None
+        self.embedding_time = None
     
     def create_collection(self, collection_name="university_knowledge", reset=False):
         """
@@ -89,6 +90,8 @@ class EmbeddingGenerator:
         # Extract text from chunks
         texts = [chunk['text'] for chunk in chunks]
         
+        self.embedding_start = datetime.now()
+        
         # Generate embeddings with progress bar
         embeddings = []
         
@@ -99,6 +102,8 @@ class EmbeddingGenerator:
         
         print(f"\nGenerated {len(embeddings)} embeddings")
         print(f"  Embedding dimension: {len(embeddings[0])}")
+        
+        self.embedding_time = datetime.now() - self.embedding_start
         
         return embeddings
     
@@ -185,10 +190,14 @@ class EmbeddingGenerator:
     
     def save_stats(self):
         """Save statistics about the vector store"""
+        if self.embedding_time:
+            print(f"Embedding time: {self.embedding_time}")
+        
         stats = {
             'collection_name': self.collection.name,
             'total_documents': self.collection.count(),
             'embedding_model': self.model.get_sentence_embedding_dimension(),
+            'embedding_time_seconds': self.embedding_time.total_seconds() if self.embedding_time else 0,
             'created_at': datetime.now().isoformat(),
             'vectorstore_path': str(self.vectorstore_path)
         }
@@ -243,9 +252,4 @@ if __name__ == "__main__":
     
     print("\n" + "="*60)
     print("Embedding & Vector Store Setup Complete!")
-    print("="*60)
-    print("Next Steps:")
-    print("1. Test queries worked? Great!")
-    print("2. If not, check chunks and re-run")
-    print("3. Move to Phase 4: LLM Setup")
     print("="*60)

@@ -1,0 +1,35 @@
+{
+  "total_chunks": 53765,
+  "chunk_size": 1000,
+  "chunk_overlap": 200,
+  "processing_time_seconds": 0.158037,
+  "processed_at": "2026-01-22T11:21:02.126176",
+  "source_types": {
+    "webpage": 53765
+  },
+  "domains": {
+    "www.conestogac.on.ca": 30423,
+    "www.conestogastudents.com": 7,
+    "studentsuccess.conestogac.on.ca": 47,
+    "blogs1.conestogac.on.ca": 20253,
+    "research.conestogac.on.ca": 1930,
+    "continuing-education.conestogac.on.ca": 523,
+    "lib.conestogac.on.ca": 88,
+    "library.conestogac.on.ca": 236,
+    "orientation.conestogac.on.ca": 59,
+    "conestogastudents.com": 6,
+    "it.conestogac.on.ca": 118,
+    "virtual-tour.conestogac.on.ca": 3,
+    "successportal.conestogac.on.ca": 25,
+    "corpweb01.conestogac.on.ca": 2,
+    "forms.conestogac.on.ca": 18,
+    "cydcinfo@conestogac.on.ca": 8,
+    "mycareer.conestogac.on.ca": 1,
+    "eexd@conestogac.on.ca": 4,
+    "employment.conestogac.on.ca": 5,
+    "reccentre.conestogac.on.ca": 2,
+    "onecard.conestogac.on.ca": 1,
+    "vlc.conestogac.on.ca": 2,
+    "internationaltransition@conestogac.on.ca": 4
+  }
+}

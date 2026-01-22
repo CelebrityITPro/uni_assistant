@@ -1,0 +1,8 @@
+{
+  "collection_name": "university_knowledge",
+  "total_documents": 53765,
+  "embedding_model": 384,
+  "embedding_time_seconds": 2282.770068,
+  "created_at": "2026-01-22T12:22:44.844497",
+  "vectorstore_path": "data\\vectorstore"
+}

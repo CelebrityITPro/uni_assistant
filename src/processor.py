@@ -244,8 +244,3 @@ if __name__ == "__main__":
     print("\n" + "="*60)
     print("Text Processing Complete!")
     print("="*60)
-    print("Next Steps:")
-    print("1. Review data/processed/chunks.json")
-    print("2. Check data/processed/chunks_summary.json")
-    print("3. Move to embedding generation (next script)")
-    print("="*60)
